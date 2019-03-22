@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+<header>
+	<div class="container" id="up">
+		<div class="row logo">
+		    LoRa : un réseau pour l’internet des objets
+	    </div>
+	</div>
+</header>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="graphe" style="margin-top: 10px;">
+				<p>
+					Cette page web synthètise toutes les informations récoltées lors de la veille technologiques concernant les réseaux déstinés aux objets, et plus particulièrement le réseau conçu par LoRa Alliance, qui est une association à but non lucratif de plus de 500 membres (entreprises). Ce réseau a été nommé LoRaWAN (Long Range Wide Area Network).
+				</p>
+				<p>
+					Ci-dessous le plan de la synthèse, contenant des liens pour naviguer dans cette même page, et la flèche en bas à droite vous permet de retrouver le haut de la page.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="titre">
+				Plan de la synthèse
+			</div>
+			<div class="graphe menu">
+				<ul>
+				  <li><a href="#intro">Introduction</a></li>
+				  <li><a href="#descg">Description générale</a></li>
+				  <li><a href="#tech">Etude téchnique</a></li>
+				  <li><a href="#depl">Déploiement</a></li>
+				  <li><a href="#vt">Outils de veille</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="intro">
+		<div class="col-lg-12">
+			<div class="titre">
+				Introduction
+			</div>
+			<div class="graphe">
+				<p>
+					Avec l'évolution que connaissent les réseaux de communications actuels, de nouveaux besoins ont vu le
+					jour. Ces besoins se caractérisent par l'innovation dans la façon avec laquelle les données sont transmises
+					dans un réseau, mais aussi dans les éléments et entités qui constituent ce réseau. L'Internet des Objets
+					(IoT) est un réseau qui permettra d'interconnecter tous les objets utilisables dans la vie quotidienne. Elle
+					est considérée comme la troisième évolution d'Internet, qui fait suite à l'ère du Web Social.
+				</p>
+				<img src="image/stat.png" style="display: block;margin-right: auto;margin-left: auto;">
+				<p>
+					Comme le montre ce graphe, le monde de l'IoT a connu une croissance assez prononcée dans la mesure
+					où le nombre des objets connectés est passé de 15 milliards en 2015 à plus de 26 milliards
+					actuellement. Et d'après les estimations, ce chiffre devrait monter à plus de 75 milliards dans 6 ans.
+				<br/>
+					Cependant, cette technologie présente différents challenges et défis auxquels les acteurs du domaine devront
+					trouver des solutions.
+				</p>
+				<p>
+					Dans les années précédents, les technologies de petite portée comme ZigBee et Bluetooth était considéré
+					de bonnes solutions pour l'internet des objets et qui consomment moins d'énergie par rapport à d'autres
+					solutions, ce qui est fondamental pour l'Internet des objets. Mais leur petite portée constitue un grand
+					inconvénient et surtout quand l'application a besoin d'une couverture urbaine. C'est la raison pour laquelle
+					les réseaux cellulaires ont été pensés pour interconnecter des objets. Mais ces réseaux n'étaient pas désignés
+					pour l'IOT car ils ne pouvaient pas prendre en charge un nombre important d'équipements. En conséquence,
+					ceci va engendrer des problèmes de signalisations et de contrôle de trafic.<br/>
+					C'est pour ça que la solution adopté était la famille LPWAN et la gure suivante nous montre l'opportunité qui a été prise pour la communication M2M qui supporte des faibles débits avec grande distance.
+				</p>
+				<img src="image/m2m.png" style="display: block;margin-right: auto;margin-left: auto;">
+			</div>
+		</div>
+	</div>
+	<div class="row"  id="descg">
+		<div class="col-lg-12">
+			<div class="titre">
+				Description générale
+			</div>
+			<div class="soustitre">
+				Architecture
+			</div>
+			<div class="graphe">
+				<p>
+					Le réseau LoRa est constitué de divers éléments :
+				</p>
+				<img src="image/infra.png" style="display: block;margin-right: auto;margin-left: auto;">
+				<ul>
+				  <li>End Points : Des cartes électroniques avec des modules LoRa et un/des capteurs implémentés. Ces
+					cartes sont localisées à distance. cette distance peut varier de 15km en zone rurale (NLOS) à 2km en
+					zone urbaine (LOS).
+				  </li>
+				  <li>LoRa gateway : Les passerelles ou antennes reçoivent les données du module radio LoRa puis les
+					transfèrent sur un système de raccordement. Cette partie du réseau LoRa peut être de type Ethernet
+					ou tout autre type de télécommunication avec ou sans ls. Les passerelles sont connectées au serveur
+					du réseau en utilisant des connections IP standard.
+				  </li>
+				  <li>Server : Le serveur du réseau LoRa gère le ux de données arrivant des antennes (Gateways). Le
+					serveur agit pour éliminer les paquets dupliqués et adapte le débit des données.
+				  </li>
+				  <li>PC distant : Un ordinateur peut contrôler les actions des modules radios ou rassembler leurs données,
+					le réseau LoRa étant quasi-transparent.
+				  </li>
+				</ul>
+			</div>
+			<div class="soustitre">
+				Caractéristiques
+			</div>
+			<div class="graphe">
+				<p>
+				LoraWAN est un réseau cellulaire, sécurisé et bidirectionnel qui est fait pour l'IOT sous les spécifications
+				LORA. Ce réseau possède les caractéristiques suivantes :
+				<p>
+				<ul>
+				  <li>Très faibles débits (0.3-50 kbps)</li>
+				  <li>Très longes distances</li>
+				  <li>Faibles duty-cycle ( 10mins)</li>
+				  <li>Grande capacité (100-300k noeuds)</li>
+				  <li>Durée de vie de la batterie ( 10 ans)</li>
+				  <li>Une technologie à faible cout</li>
+				</ul>
+				<p>
+				De plus, Ce réseaux supporte le Roaming qui permet d'inter-connecter un équipement partout où le réseau
+				LORA existe. La sécurité est aussi assurée grâce à 3 clés qui sont (Unique ID, Applications Key, Network
+				Key). Le réseau Lora WAN a été développé et maintenu par l'alliance LoRa qui regroupe de
+				grands acteurs de l'IOT à travers le monde.
+				</p>
+			</div>
+			<div class="soustitre">
+				Pile protocolaire
+			</div>
+			<div class="graphe">
+				<img src="image/pile protocolaire.png" style="display: block;margin-right: auto;margin-left: auto;">
+				<p>
+				La solution LoRaWAN se base sur une pile protocolaire assez particulière, dans la mesure où d'un point de
+				vue couche physique, seule la liaison Terminal-Passerelle va bénéficier de cette innovation (modulation LoRa
+				ou FSK). Quant à la liaison Passerelle-Serveur, elle se fait sous IP standard. On retrouve aussi une couche
+				niveau MAC (LoRaWAN Slave pour le Terminal et LoRaWAN Master pour le serveur) qui va permettre
+				de véhiculer les trames contenant les messages relatifs aux applications. Elle permet aussi de transmettre
+				les différentes commandes qui vont régir la transmission (contrôle du débit entre autres). Une attention
+				particulière sera prêtée à la problématique de la sécurité, qui est un paramètre important étant donné le
+				nombre d'objets connectés, ainsi que la confidentialité dont peuvent faire preuve les données transmises.
+				Pour cela, des mécanismes de chiffrements à bases de clés ont été mis en place.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="tech">
+		<div class="col-lg-12">
+			<div class="titre">
+				Etude téchnique
+			</div>
+			<div class="soustitre">
+				Couche Physique
+			</div>
+			<div class="soussoustitre">
+				Bande de fréquences
+			</div>
+			<div class="graphe">
+				<p>
+					Les systèmes sans fil de la technologie LoRa utilisent des fréquences sans-licence qui sont disponiblespartout dans le monde. Les bandes les plus utilisées sont :
+				</p>
+				<ul>
+				  <li>868 MHz en Europe</li>
+				  <li>915 MHz aux États-Unis</li>
+				  <li>433 MHz en Asie</li>
+				</ul>
+				<p>
+				Ces fréquences sont basses, en comparaison des traditionnels 2.4 GHz et 5 GHz utilisé dans le contexte ISM
+				(Industrial Scientific Medical). C'est cela qui permet d'avoir une très grande portée de transmission. De
+				plus, ce sont des bandes de fréquences gratuites, ce qui est aussi un paramètre très important à prendre en
+				considération étant donné le nombre d'objets connectés.
+				</p>
+			</div>
+			<div class="soussoustitre">
+				Modulation LoRa
+			</div>
+			<div class="graphe">
+				<p>
+					La modulation LoRa se base sur une technique d'étalement de spectre appelée Chirp Spread Spectrum
+					(CSS). Cette technique consiste à utiliser des signaux appelés Chirps pour coder l'information. Un Chirp est
+					un signal dont la fréquence varie soit de manière croissante (Upchirp), ou de manière décroissante (Downchirp).
+				</p>
+				<img src="image/chirp.png" style="display: block;margin-right: auto;margin-left: auto;">
+				<p>
+				C'est l'utilisation de ce type de signaux qui permet d'étaler le signal d'origine dans une bande spectrale
+				plus large, ce qui améliore considérablement la transmission.
+				Un codeur de Reed Solomon, dont le rendement varie selon les terminaux et constructeurs, ainsi qu'un
+				entrelaceur sont aussi utilisés pour la correction d'erreur.
+				Au niveau du terminal, les Chirps sont obtenus grâce à un générateur aléatoire. Et c'est le champ
+				Préambule de la trame physique qui permet d'indiquer à la Passerelle le format de Chirp utilisé, afin de
+				pouvoir démoduler le signal reçu.<br/>
+				Comme dit précédemment, les Chirps permettent de coder l'information. En d'autres termes, un bit (0
+				ou 1) sera codé sous différents Chirps, comme dans la figure qui suit :
+				</p>
+				<img src="image/codage.png" style="display: block;margin-right: auto;margin-left: auto;">
+				<p>
+				On définit ,par ailleurs, le facteur d'étalement (SF) comme étant le nombre de Chirps par bit. Avec la
+				bande passante des Chirps (écart de fréquence), ces deux paramètres permettent de garantir l'orthogonalité
+				des transmissions des différents émetteurs. En effet, les récepteurs utiliseront la même séquence de Chirp par
+				bit pour démoduler et ne récupérer que le signal qui leur est destiné.
+				<br/>
+				La principale raison permettant une telle efficacité dans la transmission est la très bonne corrélation des
+				Chirps. Elle permet de les distinguer les uns parmi les autres lors de la réception. La figure suivante, illustre
+				cette caractéristique pour un type de Chirp donné :
+				</p>
+				<img src="image/autocor.png" style="display: block;margin-right: auto;margin-left: auto;">
+				<p>
+				La modulation LoRa présente plusieurs caractéristiques intéressantes :
+				</p>
+				<ul>
+				  <li>Faible puissance : Paramètre crucial étant donné la faible autonomie que peuvent avoir les terminaux.</li>
+				  <li>Très grande robustesse aux interférences et au bruit grâce à un produit B*T (Time-Band product)
+				supérieur à 1</li>
+				  <li>Résistance au Fading et au Multi-trajet grâce au caractère large bande du signal transmis</li>
+				  <li>Résistance à l'effet Doppler : Ce dernier introduit un petit shift fréquentiel qui est reflété par un shift
+				temporel négligeable.</li>
+				  <li>Grande portée de transmission : L'une des caractéristiques les plus importantes, car dans le monde
+				IoT, les objets doivent pouvoir communiquer à travers de grande distance</li>
+				</ul>
+			</div>
+			<div class="soussoustitre">
+				Choix de la modulation
+			</div>
+			<div class="graphe">
+			<p>
+				Sur les équipements qui supportent la technologie LORA on trouve toujours des modulateurs LORA
+				et FSK afinn qu'ils puissent moduler tous les signaux entrants. Il y a un compromis de portée/débit entre
+				les modulations LORA et FSK, et le choix dépendent du débit et la distance de l'équipement qui veut
+				communiquer sachant que LORA est bien fait pour des faibles débits ? grande distance. Il faut noter que les
+				canaux de communications sont déjà préconfigurés avec leur mode de modulation. Chaque canal est défini
+				par les caractéristiques suivants : (largeur de bande, fréquence du canal, facteur d'étalement, sensibilité, taux
+				de codage...) Aujourd'hui, différents acteurs (Huawei, Semtech, Thinkpark, Libelium...) développent toujours
+				des équipements qui supportent LORA avec ses spécifications. Et donc chaque entité essaye de choisir sa
+				propre configuration d'émission de données en fonction des nombres de canaux et des modulations. Dans ce
+				cas la modulation est choisi en adéquation avec les autres paramètres du canal et c'est le débit et la portée
+				qui présentent les 2 facteurs les plus importants dans le choix du canal.
+			</p>
+			<p>Exemples de configuration :</p>
+			<figure style="text-align: center">
+			  <img src="image/semtech.png"/>
+			  <figcaption>Semtech</figcaption>
+			</figure>
+			<figure style="text-align: center">
+			  <img src="image/thinkpark.png"/>
+			  <figcaption>Thinkpark</figcaption>
+			</figure>				
+			</div>
+			<div class="soustitre">
+				Couche MAC
+			</div>
+			<div class="soussoustitre">
+				Format de messages MAC
+			</div>
+			<p>
+			Les messages du lien montant ( UpLink ) et du lien descendant (DownLink) contiennent le Payload
+			Physique, qui commence par un MAC-HEADER << MHDR >> codé par 1 octet et suivi par le MIC << Message
+			Integrity Code >> codé par 4 octets. Le MAC-HEADER spécifie le type des messages qui sont représentés dans
+			le tableau ci-dessous, comme les messages de JoinRequest et JoinAccept qui sont utilisés dans le processus
+			de l'activation dont le principe sera expliqué plus tard. Et pour le MAC Payload, il contient le Frame Header
+			<< FHDR >> qui est constitué des champs : DevAddr - et - le Frame Control FCTRL qui est utilisé dans le
+			mécanisme ADR - et - le Frame Counter et à la fin le champ Frame Options FOPT qui est utilisé pour
+			transporter les commandes MAC.
+			</p>
+			<figure style="text-align: center">
+			  <img src="image/mac.png"/>
+			  <figcaption>Format des messages MAC</figcaption>
+			</figure>
+			<figure style="text-align: center">
+			  <img src="image/mac2.png"/>
+			</figure>
+			<p>
+				Les Data Messages sont utilisés pour envoyer soit des commandes MAC soit des données d'applications,
+				ou encore les deux combinées dans un seul message. Trois types de messages existent :
+				<br/>
+				-> Confirmed-Data message : Qui requiert une réponse (acquittement) de la part du récepteur. Ce dernier
+				va répondre par une trame avec le bit ACK égal à 1. Si l'émetteur est le réseau, l'acquittement sera
+				envoyé pendant une des fenêtres de réception du devices. A noter que ce mécanisme permet de faire
+				du piggy-backing.
+				<br/>
+				-> Unconfirmed-Data message : Ne requiert pas d'acquittement.
+				Concernant les retransmissions, leur nombre varient en fonction du terminal, et peut aussi être confi-
+				guré par le réseau. Si le serveur du réseau a atteint son nombre maximal de retransmissions sans recevoir
+				d'acquittement de la part du device, il considère que ce dernier est injoignable.
+				Remarque sur les acquittements : On a des acquittements dans les deux voies : montante et descendante.
+				Une trame fait office d'un acquittement en ayant le bit ACK mis à 1. Les devices qui reçoivent une trame
+				du réseau nécessitant d'être acquittée seront obligés d'ouvrir une fenêtre d'émission pour envoyer une trame
+				avec le bit ACK mis à 1, cette trame peut être vide s'ils n'ont pas de données à émettre. Cela permet de
+				résoudre le problème des devices qui dorment pendant une longue durée.
+			</p>
+			<div class="soussoustitre">
+				Contrôle adaptatif du débit (ADR)
+			</div>
+			<p>
+				Le réseau LoRa offre la possibilité aux terminaux de choisir leurs débits de transmissions. Cela permet
+				d'optimiser les débits des terminaux statiques. Quand aux devices mobiles, il est préférable d'utiliser un
+				débit fixe étant donnés les changements possibles du canal.
+				<br>
+				Afin de procéder au contrôle du débit, il faut que le bit ADR présent dans le champ FCtrl soit mis à 1.
+				Cette opération s'effectue par échange de commande MAC. Le bit ADR peut être activé ou non sur demande,
+				mais il est préférable qu'il le soit afin d'améliorer la durée de vie de la batterie et de maximiser la capacité
+				du réseau.
+				<br>
+				Pour qu'un terminal utilise un débit supérieur à celui utilisé par défaut, il faut qu'il s'assure périodiquement
+				que le réseau reçoit bien ses messages uplink.
+				<br>
+				La procédure est la suivante : A chaque fois qu'un terminal émet sur la voie montante, il incrémente un
+				compteur ADR ACK CNT. Une fois que ce compteur atteint une limite ADR ACK LIMIT sans avoir reçu
+				de réponse dans la voie descendante, le bit ADRACKReq présent dans le champ FCtrl est mis à 1. Le réseau
+				est contraint à répondre en voie descendante après un délai ADR ACK DELAY. Chaque réponse du réseau
+				reçue par le terminal après une émission uplink réinitialise le compteur ADR ACK CNT.
+				<br>
+				Si le terminal ne reçoit toujours pas de réponse après ADR ACK LIMIT + ADR ACK DELAY, il va
+				repasser au débit inférieur précédent, et va réduire son débit à chaque fois que la valeur ADR ACK LIMIT
+				est atteinte.
+			</p>
+			<div class="soussoustitre">
+				Commandes MAC
+			</div>
+			<p>
+				Le principal objectif des commandes MAC est d'administrer le réseau, elles sont échangées à travers le
+				champ FRAME-Options. Il y a deux méthodes pour envoyer ces commandes, soit sous forme PiggyBacked,
+				soit les envoyer comme une trame de données séparée. Le tableau ci-dessous liste les principales commandes
+				et leurs fonctionnalités :
+			</p>
+				<img src="image/commandemac.png" style="display: block;margin-right: auto;margin-left: auto;">
+			<div class="soussoustitre">
+				Accès au canal
+			</div>
+			<p>
+				Pour garantir une certaine équité entre terminaux, un terminal ne peut utiliser un même canal qu'une seule
+				fois durant une certaine période (la durée est choisit par le serveur, il utilise la commande DutyCycleReq).
+				Le terminal peut choisir de transmettre d'une façon aléatoire, donc une fois que le terminal veut transmettre
+				il suit les étapes suivantes pour utiliser un canal :
+				<br>
+				1) Le terminal choisit de façon aléatoire un canal.
+				<br>
+				2) Le terminal écoute grâce au mécanisme LBT (Listen Before Talk).
+				<br>
+				3) Si le canal est libre, alors le terminal peut envoyer. Pour éviter les collisions avec d'autres terminaux
+				ayant choisit de transmettre en même temps, le terminal attend un moment aléatoire Back-off avant
+				de transmettre.
+				<br>
+				4) Si le canal n'est pas libre alors le terminal refait la procédure.
+			</p>
+			<div class="soussoustitre">
+				Activation d'un terminal
+			</div>
+			<p>
+				Afin de pouvoir communiquer avec le reste du réseau LoRaWAN, tous les
+				terminaux doivent être activés.Il y a deux procédures différentes pour activer un terminal. L'activation d'un
+				terminal consiste à ce que le terminal aie reçu les informations suivantes :
+				<br>
+				- DevAddr : 32 bits, c'est l'addresse du terminal au sein du réseau.
+				<br>
+				- AppEUI : c'est l'identifiant de l'application, déjà enregistré dans le terminal avant la procédure.
+				<br>
+				- NwkSKey : c'est une clé utilisée par le serveur et le terminal pour calculer le MIC.
+				<br>
+				- AppSKey : c'est une clé utilisée par le serveur et le terminal pour chiffrer ou déchiffrer les payloads
+				au niveau applicatif.
+			</p>
+			<p style="text-decoration: underline;">
+			    Over-The-Air Activation: 
+			</p>
+			<p>
+				Cette procédure est utilisée si le terminal a déjà été déployé, ou si il a été
+				réinitialisé. Durant celle-ci, le terminal envoie une requête pour adhérer au réseau et si tout est correcte le
+				serveur répond par une trame d'acceptation (join request, join accept).
+				<br>
+				Le terminal utilise ces requêtes pour échanger avec le serveur les quatre informations nécessaires à la
+				communication. Dans la figure précédente, on peut voir que la trame join-request contient des informations
+				qui doivent déjà être dans le terminal :
+				<br>
+				- DevEUI : c'est l'adresse qui identie de manière unique un terminal.
+				<br>
+				- AppKey :c'est une clé donnée par le fournisseur de l'application, utilisée pour calculer les clés NwkSKey
+				et AppSKey.
+				<br>
+				- DevNonce : c'est un numéro aléatoire, utilisé aussi pour le calcul des clés. Il sera enregistré par le
+				serveur pour garder une trace de chaque adhésion d'un terminal. Si le même DevNonce est utilisé par
+				le même appareil il sera ignoré, ce mécanisme permet de prévenir des attaques.
+				Dans la trame Join-accept, envoyée comme un downlink normal dans les deux fenêtres de réception qui
+				suivent le uplink, contient les informations suivantes :
+				<br>
+				- AppNonce : utilisé par le terminal pour calculer NwkSKey et AppSKey
+				<br>
+				- DevAddr : 32 bits, c'est l'addresse du terminal au sein du réseau
+			</p>
+			<p>
+				Remarques :
+				<br>
+				- la requête est envoyée en clair, alors que la réponse est chiffrée avec AppKey.
+				<br>
+				- le serveur ignore la requête si ses informations ne sont pas correctes.
+			</p>
+			<p style="text-decoration: underline;">
+			    Activation By Personalization 
+			</p>
+			<p>
+				Sous certaines conditions, cette procédure d'activation est utilisée.
+				Elle ne repose pas sur les trames join-request join-accept, les quatre informations dont nous avons parler
+				plus haut sont téléchargées directement dans le terminal.
+			</p>
+		</div>
+	</div>
+	<div class="row"  id="depl">
+		<div class="col-lg-12">
+			<div class="titre">
+				Déploiement
+			</div>
+			<div class="soustitre">
+				En France
+			</div>
+			<p>
+			Les grands opérateurs français, à savoir BOUYGUES Télécom et ORANGE, ont déjà déployé
+			leurs réseaux LoRa. En effet, BOUYGUES a ouvert son réseau des objets connectés LoRa en Juin 2015, et
+			pour ORANGE, en Avril 2016. D'ailleurs, et d'un pont de vue
+			commercial, le réseau LoRa est une technologie pour améliorer le modèle économique, ainsi, la facturation ne
+			sera pas reliée au volume des données échangées mais elle sera annuelle et fixe. Pour BOUYGUES, l'accès
+			au réseau et le transfert de données sera offert, et la gestion des Objets ou de la partie software qui sera
+			payée. La rentabilité de cette stratégie due au faible cout de déploiement du réseau LoRa, car BOUYGUES
+			parle de quelques dizaines de milliers d'euros pour assurer la couverture de la France entière. D'ailleurs, il
+			y aura la possibilité de faire le Roaming, en effet, un client chez ORANGE peut utiliser les deux réseaux,
+			ORANGE et BOUYGUES selon la position de son objet connecté.
+			<br>
+			Cette possibilité est conditionnée par l'accord des différents acteurs de réaliser des partenariats commerciaux,
+			ce qui est diffcile à réaliser vue la concurrence. Cette concurrence a connu un nouvel acteur,
+			ARCHOS, qui déploiera des mini-antennes ayant la forme d'une prise électrique, et qui utilise un autre
+			protocole propriétaire, différent de LoRaWAN, donc un objet qui communique avec le protocole LoRaWAN
+			ne pourra pas utiliser le réseau ARCHOS, et cela va encore segmenter le marché des réseaux des objets
+			connectés.
+			<br>
+			- Orange et son réseau LoRa : L'ouverture du réseau LoRa Orange est prévue pour le mois prochain <<
+			Avril >> de cette année, et des tests sur les principales utilisations ( la localisation des objets, récupération
+			des informations générées par les capteurs) sont déjà réalisés dans la ville de Grenoble, avec plus de 30
+			entreprises partenaires comme SCHNEIDER ELECTRIC.
+			<br>
+			- Bouygues et son réseau LoRa : Bouygues Télécom a déployé en juin  2015 son réseau LoRa
+			avec un débit allant de 0.3 à 50 kbps et une portée de l'ordre de 15km et une sensibilité de 140 dBm avec
+			une forte puissance d'émission de 20 dBm. LoRa Bouygues utilise 15000 GW pour couvrir 500 communes
+			françaises.
+			</p>
+			<div class="soustitre">
+				Exemple de test de déploiement
+			</div>
+			<p>
+				La société italienne PATAVINA a installé un réseau privé LoRa dans un immeuble de 19 étages dans le
+				nord de l'Italie, L'objectif était de contrôler et de faire la supervision de la température et l'humidité pour
+				chaque chambre, dans le but de réduire le cout relié à la ventilation et le conditionnement de l'air. Pour cette
+				raison, ils ont essayé les différentes technologies sans fils et filaires, mais ces solutions ont été insatisfaites,
+				car elles nécessitent l'installation des répéteurs et GW au niveau de tous les étages pour garantir l'accès
+				au backbone IP, donc au lieu de cela, la technologie LoRa a permis de fournir le service en installant une
+				seule GW au niveau du 9 ème étage et en plaçant 32 objets connectés dans tous le bâtiment, l'installation
+				comprends l'intégration du NetServer avec une application de contrôle avec les bases des données déjà
+				utilisées. La remarque est que la connectivité du réseau LoRa a été mise à rudes épreuves en plaçant les
+				n ?uds dans les ascenseurs et dans d'autres endroits connus pour être un challenge pour la connectivité
+				radio. Tous les tests de résistance ont été passés avec succès. L'étape suivante consistait à installer une
+				Gateway sur un site élevé pour servir plusieurs bâtiments dans le quartier. Cette preuve de concept est
+				particulièrement intéressante car elle montre d'un côté les indications pertinentes la façon pratique que le
+				paradigme LoRaWAN est pour le scénario SmartCity et de l'autre côté, une certaine intuition du point de vue
+				économique. En effet, bien que très limité dans son étendue, l'expérience positive acquise dans l'installation
+				du système LoRa dans un bâtiments de preuve de concept est de bon augure pour l'extension du service
+				aux autres bâtiments publiques et privés, réalisant en même temps une infrastructure pour d'autres services
+				smartcity. L'Analyse de résultats du test de la couverture : Il y a une diffculté au niveau de l'estimation
+				correcte des couts pour la couverture de toute la ville, cette diffculté peut avoir un impact sur les dépenses
+				en immobilisations des fournisseurs de services. L'objectif du test de la couverture du réseau LoRa dans la
+				ville italienne, était d'évaluer le << pire cas >> de la couverture de la technologie LoRaWAN et d'avoir une
+				estimation du nombre des GW nécessaires pour couvrir toute la ville, et pour cela, la société a placé une
+				Gateway sans gain d'antenne au sommet d'un bâtiment de 2 étages sans une élévation de l'antenne, et dans
+				une zone où les bâtiments élevés sont présents, et la figure ci-dessous montre les résultats de l'essai :
+			</p>
+				<img src="image/test.png" style="display: block;margin-right: auto;margin-left: auto;">
+			<p>
+				Dans des conditions diffciles de propagation, la technologie LoRa peut couvrir une cellule de 2km ;
+				Cependant, la connexion au bord de la cellule est garantie uniquement lorsqu'on utilise le débit binaire le
+				plus faible avec une faible marge d'interférences, et pour cette raison ils ont supposé une gamme de couverture
+				de 1.2 Km, une valeur qui assure une marge raisonnable aux variations d'interférences et du budget de liaison
+				et avec cette estimation, la couverture de l'ensemble de la municipalité peut être atteinte avec 30 Gateways.
+				Les habitants de cette ville sont 200 000, considérant 30 GW pour couvrir la ville, on obtient 7000 habitants
+				par GW, donc la technologie LoRa revendique la capacité de servir 15000 noeuds par GW avec 2 objets
+				connectés par personne. Ils ont envisagé que la prochaine génération des GW devrait tripler la capacité,
+				dans le long terme on peut atteindre 6 à 7 objets connectés par personne.
+			</p>
+			<div class="soustitre">
+				Domaines d'application
+			</div>
+			<p>
+			La technologie LoRaWAN vise plusieurs domaines, on cite les plus importantes ses utilisations :
+			<br/>
+			- Smart Metering : Les compteurs intelligents << eau, gaz, électricité, etc >> dans les zones indoor et sous-sol.
+			<br/>
+			- Tracking-Geofencing des objets mobiles : La géolocalisation précise des sacs et colis.
+			<br/>
+			-  Services d'urgence et de sécurité : le besoin de la bidirectionnalité avec les capteurs d'intrusion et les
+			détecteurs de fumée ou de la chute.
+			<br/>
+			- Les bâtiments intelligents.
+			<br/>
+			- Les systèmes d'alarmes et de transmission d'alerte sécurisée.
+			<br/>
+			- Le service de Backhol LoRa pour l'interconnexion au SI de l'entreprise
+			<br/>
+			<p>
+			On illustrera deux principaux usages de cette technologie :
+			<p>
+			<p style="text-decoration: underline;">
+			    La maintenance prédictive
+			</p>
+			<p>
+				On prend l'exemple du contrôle à distance des locaux techniques << datacenter
+				>>, l'objectif de la technologie LoRa et d'assurer l'accès aux capteurs en indoor et permettre aux opérateurs
+				de cartographier et contrôler les équipements de leurs réseaux des centres locaux.
+			</p>
+				<img src="image/maint.png" style="display: block;margin-right: auto;margin-left: auto;">			
+			<p style="text-decoration: underline;">
+			    Smart Metering
+			</p>
+			<p>
+				On prend l'exemple de la télé-relève des compteurs d'eau. Avec LoRa, les opérateurs
+				peuvent superviser et contrôler leurs réseaux des compteurs et l'utilisateur pourra contrôler aussi sa consommation
+				via une plateforme d'abonnement.
+			</p>
+				<img src="image/smartm.png" style="display: block;margin-right: auto;margin-left: auto;">			
+		</div>
+	</div>
+	<div class="row"  id="vt">
+		<div class="col-lg-12">
+			<div class="titre">
+				Outils de veille
+			</div>
+			<div class="graphe menu">
+				<ul>
+				  <li>Articles :</li>
+				  - <a href="https://www.reddit.com/r/Lora/"  target="_blank">Forum dédiée à LoRa, sur le site communautaire Reddit</a>
+				  <br/>
+				  - <a href="https://lora-alliance.org/"  target="_blank">Site officiel Lora</a>
+				  <br/>
+				  - <a href="https://www.objetconnecte.com/tout-savoir-reseau-lora-bouygues/" target="_blank">objetconnecte.com</a>
+				  <li>Spécification :</li>
+				  - <a href="https://lora-alliance.org/resource-hub/lorawantm-specification-v11" target="_blank">Document de spécification</a>
+				  <li>Twitter :</li>
+				  - <a href="https://twitter.com/LoRaAlliance" target="_blank">Compte twitter</a>
+				  <li>Vidéo :</li>
+				  - <a href="https://www.youtube.com/channel/UCXYkZ2wgVIoGHLkmynVlYmQ" target="_blank">Chaine Youtube officielle</a>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row"  id="vt">
+		<div class="col-lg-6 center" style="margin-top: 10px;">
+			<p>
+				<a href="https://twitter.com/AmineChiban" style="color:black">Twitter</a>
+			</p>
+		</div>
+		<div class="col-lg-4 center" style="margin-top: 10px;">
+			<p>
+				amine.chiban@master.ec-lyon.fr
+			</p>
+		</div>
+	</div>
+	<a href="#up" style="position: fixed;right: 25px;bottom:20px;"><i class="fas fa-arrow-up" style="font-size: 30px;color: #3d4465"></i></a>
+</div>
+
+</body>
